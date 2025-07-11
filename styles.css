@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+}
+header {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1.5rem 0;
+}
+.header-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #2a7ae2;
+  letter-spacing: 2px;
+}
+nav a {
+  text-decoration: none;
+  color: #222;
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #2a7ae2;
+}
+.hero {
+  max-width: 1100px;
+  margin: 3rem auto 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1 1 350px;
+}
+.hero-text h1 {
+  font-size: 2.7rem;
+  margin-bottom: 1rem;
+  color: #2a7ae2;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #444;
+}
+.hero-text button {
+  background: #2a7ae2;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(42,122,226,0.08);
+  transition: background 0.2s;
+}
+.hero-text button:hover {
+  background: #185fa7;
+}
+.hero-img {
+  flex: 1 1 300px;
+  text-align: center;
+}
+.hero-img img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(42,122,226,0.10);
+}
+.products-section {
+  max-width: 1100px;
+  margin: 3rem auto;
+}
+.products-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2a7ae2;
+  text-align: center;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.product-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(42,122,226,0.13);
+}
+.product-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.product-card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.3rem 0;
+  color: #222;
+}
+.product-card p {
+  font-size: 0.97rem;
+  color: #666;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+.product-card .price {
+  font-weight: bold;
+  color: #2a7ae2;
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+.product-card button {
+  background: #2a7ae2;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.3rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.product-card button:hover {
+  background: #185fa7;
+}
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 1.2rem 0;
+  color: #888;
+  font-size: 1rem;
+  margin-top: 3rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+}
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-img {
+    margin-top: 2rem;
+  }
+}
+/* Upload Product Button */
+.upload-btn {
+  margin-left: 20px;
+  padding: 8px 18px;
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.upload-btn:hover {
+  background: #e68900;
+}
+
+/* Modal Styles */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.4);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  padding: 32px 24px 24px 24px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+}
+.close:hover {
+  color: #ff9800;
+}
+#uploadProductForm label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+#uploadProductForm input,
+#uploadProductForm textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+#uploadProductForm button[type="submit"] {
+  margin-top: 18px;
+  width: 100%;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#uploadProductForm button[type="submit"]:hover {
+  background: #388e3c;
+}
+#uploadStatus {
+  margin-top: 12px;
+  font-size: 0.98rem;
+  color: #d32f2f;
+  min-height: 20px;
+} 

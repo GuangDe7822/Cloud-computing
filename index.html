@@ -4,189 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Retailer - Landing Page</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8f9fa;
-      color: #222;
-    }
-    header {
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 1.5rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .logo {
-      font-size: 1.7rem;
-      font-weight: bold;
-      color: #2a7ae2;
-      letter-spacing: 2px;
-    }
-    nav a {
-      text-decoration: none;
-      color: #222;
-      margin-left: 2rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    nav a:hover {
-      color: #2a7ae2;
-    }
-    .hero {
-      max-width: 1100px;
-      margin: 3rem auto 2rem auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .hero-text {
-      flex: 1 1 350px;
-    }
-    .hero-text h1 {
-      font-size: 2.7rem;
-      margin-bottom: 1rem;
-      color: #2a7ae2;
-    }
-    .hero-text p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #444;
-    }
-    .hero-text button {
-      background: #2a7ae2;
-      color: #fff;
-      border: none;
-      padding: 0.9rem 2.2rem;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(42,122,226,0.08);
-      transition: background 0.2s;
-    }
-    .hero-text button:hover {
-      background: #185fa7;
-    }
-    .hero-img {
-      flex: 1 1 300px;
-      text-align: center;
-    }
-    .hero-img img {
-      max-width: 320px;
-      width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(42,122,226,0.10);
-    }
-    .products-section {
-      max-width: 1100px;
-      margin: 3rem auto;
-    }
-    .products-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #2a7ae2;
-      text-align: center;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
-    .product-card {
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      padding: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .product-card:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 6px 24px rgba(42,122,226,0.13);
-    }
-    .product-card img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-    .product-card h3 {
-      font-size: 1.1rem;
-      margin: 0.5rem 0 0.3rem 0;
-      color: #222;
-    }
-    .product-card p {
-      font-size: 0.97rem;
-      color: #666;
-      margin-bottom: 0.7rem;
-      text-align: center;
-    }
-    .product-card .price {
-      font-weight: bold;
-      color: #2a7ae2;
-      font-size: 1.1rem;
-      margin-bottom: 0.7rem;
-    }
-    .product-card button {
-      background: #2a7ae2;
-      color: #fff;
-      border: none;
-      padding: 0.5rem 1.3rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .product-card button:hover {
-      background: #185fa7;
-    }
-    footer {
-      background: #fff;
-      text-align: center;
-      padding: 1.2rem 0;
-      color: #888;
-      font-size: 1rem;
-      margin-top: 3rem;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
-    }
-    @media (max-width: 700px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-img {
-        margin-top: 2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <div class="logo">ShopEase</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-content">
+      <div class="logo">BriteShop</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="uploadProductBtn" class="upload-btn">Upload Product</button>
+    </div>
   </header>
 
   <section class="hero">
     <div class="hero-text">
-      <h1>Welcome to ShopEase</h1>
+      <h1>Welcome to BriteShop</h1>
       <p>Your one-stop shop for the latest and greatest products. Enjoy seamless shopping, fast delivery, and unbeatable prices!</p>
       <button onclick="scrollToProducts()">Shop Now</button>
     </div>
     <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1513708927688-890fe41c2e8e?auto=format&fit=crop&w=600&q=80" alt="Shopping Bags">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Fashionable clothing and accessories">
     </div>
   </section>
 
@@ -198,73 +38,29 @@
   </section>
 
   <footer>
-    &copy; 2024 ShopEase. All rights reserved.
+    &copy; 2024 BriteShop. All rights reserved.
   </footer>
 
-  <script>
-    // Placeholder product data
-    const products = [
-      {
-        name: "Wireless Headphones",
-        desc: "Experience high-quality sound without the wires.",
-        price: "$59.99",
-        img: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        name: "Smart Watch",
-        desc: "Track your fitness and stay connected on the go.",
-        price: "$129.99",
-        img: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        name: "Eco Water Bottle",
-        desc: "Stay hydrated with this eco-friendly, reusable bottle.",
-        price: "$19.99",
-        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        name: "Bluetooth Speaker",
-        desc: "Portable speaker with deep bass and long battery life.",
-        price: "$39.99",
-        img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        name: "Fitness Tracker",
-        desc: "Monitor your health and activity 24/7.",
-        price: "$49.99",
-        img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        name: "Classic Backpack",
-        desc: "Stylish and spacious for all your daily needs.",
-        price: "$34.99",
-        img: "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80"
-      }
-    ];
+  <!-- Upload Product Modal -->
+  <div id="uploadModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Upload New Product</h2>
+      <form id="uploadProductForm">
+        <label for="productName">Name:</label>
+        <input type="text" id="productName" name="name" required>
+        <label for="productDesc">Description:</label>
+        <textarea id="productDesc" name="desc" required></textarea>
+        <label for="productPrice">Price:</label>
+        <input type="text" id="productPrice" name="price" required>
+        <label for="productImg">Image URL:</label>
+        <input type="url" id="productImg" name="img" required>
+        <button type="submit">Upload</button>
+      </form>
+      <div id="uploadStatus"></div>
+    </div>
+  </div>
 
-    function renderProducts() {
-      const grid = document.getElementById('productsGrid');
-      grid.innerHTML = '';
-      products.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <img src="${product.img}" alt="${product.name}">
-          <h3>${product.name}</h3>
-          <p>${product.desc}</p>
-          <div class="price">${product.price}</div>
-          <button>Add to Cart</button>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function scrollToProducts() {
-      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Render products on page load
-    renderProducts();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
