@@ -6,10 +6,38 @@ $db   = 'briteshop';
 $user = 'admin';
 $pass = 'admin12345678';
 
-$conn = new mysqli($host, $user, $pass, $db);
+// Connect to MySQL server (no DB yet)
+$conn = new mysqli($host, $user, $pass);
 if ($conn->connect_error) {
     http_response_code(500);
     echo json_encode(['error' => 'Database connection failed: ' . $conn->connect_error]);
+    exit();
+}
+
+// Create database if not exists
+if (!$conn->select_db($db)) {
+    if ($conn->query("CREATE DATABASE `$db`")) {
+        $conn->select_db($db);
+    } else {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to create database: ' . $conn->error]);
+        exit();
+    }
+} else {
+    $conn->select_db($db);
+}
+
+// Create products table if not exists
+$table_sql = "CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    `desc` TEXT NOT NULL,
+    price VARCHAR(50) NOT NULL,
+    img VARCHAR(500) NOT NULL
+)";
+if (!$conn->query($table_sql)) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Failed to create table: ' . $conn->error]);
     exit();
 }
 
@@ -20,12 +48,12 @@ if ($result) {
     if ($row['count'] == 0) {
         // Insert dummy data
         $dummy = [
-            ["Wireless Headphones", "Experience high-quality sound without the wires.", "$59.99", "https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=400&q=80"],
-            ["Smart Watch", "Track your fitness and stay connected on the go.", "$129.99", "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=400&q=80"],
-            ["Eco Water Bottle", "Stay hydrated with this eco-friendly, reusable bottle.", "$19.99", "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"],
-            ["Bluetooth Speaker", "Portable speaker with deep bass and long battery life.", "$39.99", "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"],
-            ["Fitness Tracker", "Monitor your health and activity 24/7.", "$49.99", "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"],
-            ["Classic Backpack", "Stylish and spacious for all your daily needs.", "$34.99", "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80"]
+            ["Classic Denim Jacket", "Timeless blue denim jacket for all seasons.", "$69.99", "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"],
+            ["Summer Floral Dress", "Lightweight floral dress perfect for summer outings.", "$49.99", "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=400&q=80"],
+            ["Men's White Sneakers", "Versatile white sneakers for everyday wear.", "$59.99", "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"],
+            ["Women's Leather Handbag", "Elegant brown leather handbag for any occasion.", "$89.99", "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80"],
+            ["Unisex Hoodie", "Comfy and stylish hoodie available in multiple colors.", "$39.99", "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80"],
+            ["Aviator Sunglasses", "Trendy aviator sunglasses with UV protection.", "$24.99", "https://images.unsplash.com/photo-1469398715555-76331a1cc6b7?auto=format&fit=crop&w=400&q=80"]
         ];
         $stmt = $conn->prepare('INSERT INTO products (name, `desc`, price, img) VALUES (?, ?, ?, ?)');
         foreach ($dummy as $d) {
