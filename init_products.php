@@ -48,12 +48,12 @@ if ($result) {
     if ($row['count'] == 0) {
         // Insert dummy data
         $dummy = [
-            ["Classic Denim Jacket", "Timeless blue denim jacket for all seasons.", "$69.99", "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"],
-            ["Summer Floral Dress", "Lightweight floral dress perfect for summer outings.", "$49.99", "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=400&q=80"],
-            ["Men's White Sneakers", "Versatile white sneakers for everyday wear.", "$59.99", "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"],
-            ["Women's Leather Handbag", "Elegant brown leather handbag for any occasion.", "$89.99", "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80"],
-            ["Unisex Hoodie", "Comfy and stylish hoodie available in multiple colors.", "$39.99", "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=400&q=80"],
-            ["Aviator Sunglasses", "Trendy aviator sunglasses with UV protection.", "$24.99", "https://images.unsplash.com/photo-1469398715555-76331a1cc6b7?auto=format&fit=crop&w=400&q=80"]
+            ["Classic Denim Jacket", "Timeless blue denim jacket for all seasons.", "$69.99", "https://briteshop-product-images-sample.s3.us-east-1.amazonaws.com/Classic_Denim_Jacket.jpg"],
+            ["Summer Floral Dress", "Lightweight floral dress perfect for summer outings.", "$49.99", "https://briteshop-product-images-sample.s3.us-east-1.amazonaws.com/Summer+Floral+Dress.jpg"],
+            ["Men's White Sneakers", "Versatile white sneakers for everyday wear.", "$59.99", "https://briteshop-product-images-sample.s3.us-east-1.amazonaws.com/Mens_White_Sneakers.jpg"],
+            ["Women's Leather Handbag", "Elegant brown leather handbag for any occasion.", "$89.99", "https://briteshop-product-images-sample.s3.us-east-1.amazonaws.com/Women's+Leather+Handbag.jpg"],
+            ["Unisex Hoodie", "Comfy and stylish hoodie available in multiple colors.", "$39.99", "https://briteshop-product-images-sample.s3.us-east-1.amazonaws.com/Unisex+Hoodie.jpg"],
+            ["Aviator Sunglasses", "Trendy aviator sunglasses with UV protection.", "$24.99", "https://briteshop-product-images-sample.s3.us-east-1.amazonaws.com/Aviator+Sunglasses.jpg"]
         ];
         $stmt = $conn->prepare('INSERT INTO products (name, `desc`, price, img) VALUES (?, ?, ?, ?)');
         foreach ($dummy as $d) {
